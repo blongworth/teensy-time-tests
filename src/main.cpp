@@ -93,6 +93,7 @@ void loop() {
       //printGPSInfo();
       if(fix.valid.date && fix.valid.time) {
         //Serial.println(fix.dateTime);
+        Teensy3Clock.set(fix.dateTime);
         setTime(fix.dateTime);
         adjustTime(utc_offset * SECS_PER_HOUR);
         Serial.println("Time synced via GPS");
